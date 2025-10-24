@@ -2,6 +2,7 @@
 
 **Nama:** Adelia Najmi Raissa  
 **NIM:** H1D023007
+
 **Shift Lama:** D  
 **Shift Baru:** E  
 **Klub:** Nottingham Forest FC  
@@ -25,7 +26,7 @@ Aplikasi ini terdiri dari tiga halaman utama:
 ---
 ## Penjelasan Alur
 
-Proses pengambilan dan penyajian data pada aplikasi Responsi 1 Mobile – Nottingham Forest FC dimulai dari pemanggilan data melalui API publik Football-Data.org menggunakan Retrofit dan Kotlin Coroutines. Ketika aplikasi dijalankan, khususnya pada MainActivity, fungsi loadTeamData() dipanggil untuk melakukan permintaan ke endpoint https://api.football-data.org/v4/teams/348, yang berisi data lengkap mengenai klub Nottingham Forest FC. Setiap permintaan jaringan dikirim secara asynchronous agar tidak menghambat kinerja antarmuka pengguna. Proses ini dijalankan pada background thread menggunakan CoroutineScope(Dispatchers.IO) dan hasilnya dikembalikan ke main thread dengan withContext(Dispatchers.Main) untuk menampilkan data ke layar.
+Proses pengambilan dan penyajian data pada aplikasi Responsi 1 Mobile – Nottingham Forest FC dimulai dari pemanggilan data melalui API publik Football-Data.org menggunakan Retrofit dan Kotlin Coroutines. Ketika aplikasi dijalankan, khususnya pada MainActivity, fungsi loadTeamData() dipanggil untuk melakukan permintaan ke endpoint https://api.football-data.org/v4/, yang berisi data lengkap mengenai klub Nottingham Forest FC. Setiap permintaan jaringan dikirim secara asynchronous agar tidak menghambat kinerja antarmuka pengguna. Proses ini dijalankan pada background thread menggunakan CoroutineScope(Dispatchers.IO) dan hasilnya dikembalikan ke main thread dengan withContext(Dispatchers.Main) untuk menampilkan data ke layar.
 
 Selama proses network call, RetrofitInstance bertanggung jawab membuat objek Retrofit tunggal yang berisi base URL dan konfigurasi GSON Converter untuk memetakan data JSON ke dalam objek Kotlin. Di sisi lain, FootballDataApi mendefinisikan endpoint getTeam(id: Int) yang memerlukan header otorisasi X-Auth-Token berisi API key agar dapat mengakses data klub secara resmi. Setelah respons berhasil diterima, data JSON tersebut secara otomatis diubah menjadi objek TeamResponse yang terdiri atas beberapa elemen penting seperti nama klub, logo (crest), pelatih (coach), serta daftar pemain (squad).
 
