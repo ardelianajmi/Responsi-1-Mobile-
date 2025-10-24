@@ -2,6 +2,7 @@
 
 **Nama:** Adelia Najmi Raissa  
 **NIM:** H1D023007
+
 **Shift Lama:** D  
 **Shift Baru:** E  
 **Klub:** Nottingham Forest FC  
